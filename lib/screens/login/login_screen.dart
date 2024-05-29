@@ -46,12 +46,31 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 50),
-            const Text(
-              'Bienvenido a tu app ',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            const SizedBox(height: 30),
+            Center(
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.app_registration),
+                    title: Text(
+                      "Registrate",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey.shade400,
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RegisterScreen()));
+                    },
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 50),
           ]),
         ),
       ),

@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/': (_) => const HomeScreen(),
         'splash': (_) => const SplashScreen(),
         'login': (_) => const LoginScreen(),
+        'register': (_) => const RegisterScreen(),
       },
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.grey[100],
