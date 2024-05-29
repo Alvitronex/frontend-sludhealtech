@@ -23,6 +23,16 @@ class SideBar extends StatelessWidget {
                           builder: (context) => const LoginScreen()));
                 },
               ),
+              ListTile(
+                leading: const Icon(Icons.login),
+                title: const Text("Registrarse"),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
+              ),
             ],
           );
         } else {
@@ -50,10 +60,14 @@ class SideBar extends StatelessWidget {
                 ),
               ),
               ListTile(
-                  leading: const Icon(Icons.shop),
-                  title: const Text("Modulo de compras"),
+                  leading: const Icon(Icons.home_filled),
+                  title: const Text("Pantalla de inicio"),
                   onTap: () {
-                    print("presionando modulo de compras");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()),
+                    );
                   }),
               const Divider(
                 height: 12,

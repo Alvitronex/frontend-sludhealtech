@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:frontend/models/models.dart';
@@ -64,7 +63,7 @@ class AuthService extends ChangeNotifier {
 
   void storeToken(String token) async {
     _storage.write(key: 'token', value: token);
-    //print(token);
+    // print(token);
   }
 
   void logout() async {

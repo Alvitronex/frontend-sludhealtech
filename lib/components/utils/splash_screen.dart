@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/screens/login/home_screen.dart';
 import 'package:frontend/screens/screens.dart';
+import 'package:frontend/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(d, () {
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
         builder: (context) {
-          return const HomeScreen();
+          return const LoginScreen();
         },
       ), (route) => false);
     });
@@ -43,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontSize: 20,
                 color: Color.fromARGB(255, 21, 45, 86),
               ),
-            )
+            ),
           ],
         ),
       ),

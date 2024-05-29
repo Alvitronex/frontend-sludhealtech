@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/components/components.dart';
+// import 'package:frontend/components/components.dart';
 import 'package:frontend/providers/providers.dart';
+import 'package:frontend/screens/login/home.dart';
 import 'package:frontend/screens/screens.dart';
 import 'package:frontend/services/auth_service.dart';
 import 'package:frontend/widgets/widgets.dart';
@@ -11,9 +13,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _password = TextEditingController();
-    final _formkey = GlobalKey<FormState>();
+    // final TextEditingController _emailController = TextEditingController();
+    // final TextEditingController _password = TextEditingController();
+    // final _formkey = GlobalKey<FormState>();
 
     return Scaffold(
       drawer: const SideBar(),
@@ -66,12 +68,16 @@ class _LoginForm extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Column(
         children: [
+          Text("Correo Electronico"),
           TextFormField(
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
             onChanged: (value) => loginForm.email = value,
           ),
           const SizedBox(height: 30),
+          Text(
+            "Contraseña",
+          ),
           TextFormField(
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
@@ -107,7 +113,11 @@ class _LoginForm extends StatelessWidget {
                     // print(respuesta);
                     if (respuesta == "correcto") {
                       loginForm.isLoading = false;
-                      Navigator.pop(context);
+                      // ignore: use_build_context_synchronously
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
                     }
                   },
             // onPressed: () {
