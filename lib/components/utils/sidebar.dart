@@ -77,6 +77,12 @@ class SideBar extends StatelessWidget {
                 title: const Text("Cerrar Session"),
                 onTap: () {
                   Provider.of<AuthService>(context, listen: false).logout();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
+                  );
+                  Navigator.pushNamed(context, "login");
                 },
               ),
             ],

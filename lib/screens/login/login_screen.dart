@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
     // final _formkey = GlobalKey<FormState>();
 
     return Scaffold(
-      drawer: const SideBar(),
+      // drawer: const SideBar(),
       appBar: AppBar(
         title: const Center(
           child: Text("Medicina"),
@@ -80,6 +80,7 @@ class _LoginForm extends StatelessWidget {
           ),
           TextFormField(
             autocorrect: false,
+            obscureText: true,
             keyboardType: TextInputType.emailAddress,
             onChanged: (value) => loginForm.password = value,
             validator: (value) {
