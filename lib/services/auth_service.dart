@@ -100,6 +100,7 @@ class AuthService extends ChangeNotifier {
           headers: {'Authorization': 'Bearer $_token'});
       cleanUp();
       notifyListeners();
+      // print("Imprimiendo desde el servies");
     } catch (e) {
       print(e);
     }

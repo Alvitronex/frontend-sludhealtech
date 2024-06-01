@@ -5,6 +5,7 @@ class registerfromprovider extends ChangeNotifier {
   String name = '';
   String email = '';
   String password = '';
+  String confirmedPassword = '';
   bool _isLoading = false;
 
   bool get isLoading => _isLoading;

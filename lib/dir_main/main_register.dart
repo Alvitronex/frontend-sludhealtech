@@ -12,51 +12,51 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // drawer: const SideBar(),
-      appBar: null,
-
-      body: WillPopScope(
-        onWillPop: () async => false, // Agrega esta línea
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Center(
-            child: Column(children: [
-              const SizedBox(
-                height: 75,
-              ),
-              const Text(
-                "Registrate",
+      appBar: AppBar(
+        title: Center(
+          child: Column(
+            children: [
+              Text(
+                'Salud Healtech',
                 style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-              Icon(
-                Icons.person,
-                size: 100,
-                color: Colors.blue.shade800,
-              ),
-              const SizedBox(height: 40),
-              Center(
-                child: ChangeNotifierProvider(
-                  create: (_) => registerfromprovider(),
-                  child: _RegisterForm(),
+                  color: Colors.grey.shade100,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LoginScreen(),
-                      fullscreenDialog: true, // Agrega esta línea
-                    ),
-                  );
-                },
-                child: const Text('¿Tienes una cuenta? Inicia aquí'),
-              ),
-            ]),
+            ],
           ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Center(
+          child: Column(children: [
+            const SizedBox(
+              height: 50,
+            ),
+            Icon(
+              Icons.person,
+              size: 100,
+              color: Colors.blue.shade800,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Center(
+              child: ChangeNotifierProvider(
+                create: (_) => registerfromprovider(),
+                child: _RegisterForm(),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              child: const Text('¿Tienes una cuenta? Inicia aquí'),
+            ),
+          ]),
         ),
       ),
     );
@@ -210,5 +210,86 @@ class _DialogoAlerta extends StatelessWidget {
       title: const Text("Error"),
       content: Text(mensaje),
     );
+  }
+}
+
+class registerfromproviders extends ChangeNotifier {
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
+  String _name = '';
+  String get name => _name;
+  set name(String value) {
+    _name = value;
+    notifyListeners();
+  }
+
+  String _email = '';
+  String get email => _email;
+  set email(String value) {
+    _email = value;
+    notifyListeners();
+  }
+
+  String _password = '';
+  String get password => _password;
+  set password(String value) {
+    _password = value;
+    notifyListeners();
+  }
+
+  String _confirmedPassword = '';
+  String get confirmedPassword => _confirmedPassword;
+  set confirmedPassword(String value) {
+    _confirmedPassword = value;
+    notifyListeners();
+  }
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+  set isLoading(bool value) {
+    _isLoading = value;
+    notifyListeners();
+  }
+}
+
+class registerfromprovider extends ChangeNotifier {
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  String _name = '';
+  String get name => _name;
+  set name(String value) {
+    _name = value;
+    notifyListeners();
+  }
+
+  String _email = '';
+  String get email => _email;
+  set email(String value) {
+    _email = value;
+    notifyListeners();
+  }
+
+  String _password = '';
+  String get password => _password;
+  set password(String value) {
+    _password = value;
+    notifyListeners();
+  }
+
+  String _confirmedPassword = '';
+  String get confirmedPassword => _confirmedPassword;
+  set confirmedPassword(String value) {
+    _confirmedPassword = value;
+    notifyListeners();
+  }
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+  set isLoading(bool value) {
+    _isLoading = value;
+    notifyListeners();
+  }
+
+  bool isValidForm() {
+    return formkey.currentState?.validate() ?? false;
   }
 }

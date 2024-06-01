@@ -3,6 +3,8 @@ import 'package:frontend/screens/screens.dart';
 import 'package:frontend/services/services.dart';
 import 'package:provider/provider.dart';
 
+import '../../screens/login/home.dart';
+
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
 
@@ -65,8 +67,7 @@ class SideBar extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomeScreen()),
+                      MaterialPageRoute(builder: (context) => const Home()),
                     );
                   }),
               const Divider(

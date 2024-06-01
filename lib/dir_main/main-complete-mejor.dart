@@ -1,181 +1,114 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/screens/screens.dart';
-import 'package:frontend/services/services.dart';
-import 'package:provider/provider.dart';
 
-// class Home extends StatelessWidget {
-//   const Home({super.key});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       drawer: const SideBar(),
-//       appBar: AppBar(
-//         title: const Center(
-//           child: Text("Medicina"),
-//         ),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.symmetric(vertical: 70),
-//         child: Center(
-//           child: Column(children: [
-//             Text(
-//               "Bienvenido",
-//               style: TextStyle(
-//                 fontSize: 25,
-//                 fontWeight: FontWeight.bold,
-//                 color: Colors.grey.shade400,
-//               ),
-//             ),
-//           ]),
-//         ),
-//       ),
-//     );
-//   }
-// }
+void main() {
+  runApp(MyApp());
+}
 
-//Funcion para guardar token en cache, sea si se cierra la app siempre se mantiene activa la session
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'S\'lud Healtech',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
 
-// @override
-// void initState() {
-//   // TODO:  implementar instancia
-//   readToken();
-//   super.initState();
-// }
-
-// void readToken() async {
-//   String? token = await storage.read(key: 'token');
-//   Provider.of<AuthService>(context, listen: false).tryToken(token);
-//   print(token);
-// }
-
-class Home extends StatelessWidget {
-  const Home({super.key});
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
-      // appBar: AppBar(
-      //   title: Text('S\'lud Healtech'),
-      //   actions: [
-      //     IconButton(
-      //       icon: Icon(Icons.logout),
-      //       onPressed: () {
-      //         Provider.of<AuthService>(context, listen: false).logout();
-      //         Navigator.pushReplacement(
-      //           context,
-      //           MaterialPageRoute(builder: (context) => const LoginScreen()),
-      //         );
-      //         Navigator.pushNamed(context, "login");
-      //       },
-      //     ),
-      //   ],
-      // ),
-      body: Stack(
-        children: [
-          Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Image.asset(
-                      'assets/utils/descarga.jpeg',
-                      width: 400,
-                      height: 200,
-                    ),
-                  ),
-                  const Text(
-                    'Bienvenido a S\'lud Healtech',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red,
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  // const Text(
-                  //   '@ user_1',
-                  //   style: TextStyle(
-                  //     fontSize: 18,
-                  //     color: Colors.blue,
-                  //   ),
-                  // ),
-                  // const SizedBox(height: 30),
-                  ElevatedButton.icon(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.blue),
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      padding: MaterialStateProperty.all<EdgeInsets>(
-                        const EdgeInsets.symmetric(
-                            horizontal: 24, vertical: 12),
-                      ),
-                    ),
-                    icon: const Icon(Icons.search),
-                    label: const Text('Ver Medicinas'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => VerMedicinaScreen()),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.blue),
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      padding: MaterialStateProperty.all<EdgeInsets>(
-                        const EdgeInsets.symmetric(
-                            horizontal: 24, vertical: 12),
-                      ),
-                    ),
-                    icon: const Icon(Icons.edit),
-                    label: const Text('Consultar Enfermedad'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DiseaseConsultPage()),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 20,
-            right: 15,
-            child: Row(
-              children: [
-                SizedBox(width: 8),
-                IconButton(
-                  icon: const Icon(
-                    Icons.logout,
-                    color: Colors.blue,
-                  ),
-                  onPressed: () {
-                    Provider.of<AuthService>(context, listen: false).logout();
-                    Navigator.pushNamed(context, "login");
-                  },
-                ),
-                Text(
-                  "Cerrar sesión",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue),
-                ),
-              ],
-            ),
+      appBar: AppBar(
+        title: Text('S\'lud Healtech'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              // Acción para cerrar sesión
+            },
           ),
         ],
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(16.0),
+                child: Image.asset(
+                  'assets/images/descarga.jpeg', // Asegúrate de tener esta imagen en tu carpeta assets
+                  width: 400,
+                  height: 200,
+                ),
+              ),
+              Text(
+                'Bienvenido a S\'lud Healtech',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                '@ user_1',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.blue,
+                ),
+              ),
+              SizedBox(height: 30),
+              ElevatedButton.icon(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  ),
+                ),
+                icon: Icon(Icons.search),
+                label: Text('Ver Medicinas'),
+                onPressed: () {
+                  // Acción para ver medicinas
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => VerMedicinaScreen()),
+                  );
+                },
+              ),
+              SizedBox(height: 20),
+              ElevatedButton.icon(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  ),
+                ),
+                icon: Icon(Icons.edit),
+                label: Text('Consultar Enfermedad'),
+                onPressed: () {
+                  // Acción para consultar enfermedad
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        //TODO
+                        builder: (context) => DiseaseConsultPage()),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -190,7 +123,7 @@ class _VerMedicinaScreenState extends State<VerMedicinaScreen> {
   final List<Map<String, String>> medicamentos = [
     {
       "name": "Paracetamol",
-      "image": "assets/utils/paracetamol.jpg",
+      "image": "assets/images/paracetamol.jpg",
       "description":
           "Beneficios:\n\nEficaz para aliviar dolores leves a moderados y reducir la fiebre. Usado para condiciones como dolores de cabeza, dolores dentales, dolores menstruales, artritis, dolores musculares y resfriados.\n\nEfectos secundarios:\n\nRaramente causa efectos secundarios cuando se toma en la dosis recomendada. Posibles efectos incluyen náuseas, erupciones cutáneas y reacciones alérgicas como hinchazón y dificultad para respirar. El uso excesivo puede causar daño hepático, especialmente cuando se combina con alcohol u otros medicamentos que contienen acetaminofén."
     },
@@ -202,85 +135,85 @@ class _VerMedicinaScreenState extends State<VerMedicinaScreen> {
     },
     {
       "name": "Aspirina",
-      "image": "assets/utils/Aspirina.jpeg",
+      "image": "assets/images/Aspirina.jpeg",
       "description":
           "Beneficios:\n\nAlivia el dolor, reduce la fiebre y tiene propiedades antiinflamatorias. A menudo se usa para prevenir ataques cardíacos y accidentes cerebrovasculares en dosis bajas debido a sus efectos anticoagulantes.\n\nEfectos secundarios:\n\nProblemas gastrointestinales como dolor de estómago, acidez y úlceras. Mayor riesgo de sangrado y reacciones alérgicas."
     },
     {
       "name": "Bismutol",
-      "image": "assets/utils/Bismutol.jpeg",
+      "image": "assets/images/Bismutol.jpeg",
       "description":
           "Beneficios:\n\nTrata náuseas, acidez, indigestión y malestar estomacal. Usado para aliviar la diarrea y prevenir la diarrea del viajero.\n\nEfectos secundarios:\n\nHeces oscuras y lengua negra. Raramente, puede causar reacciones alérgicas graves."
     },
     {
       "name": "Clonazepam",
-      "image": "assets/utils/Clonazepam.jpeg",
+      "image": "assets/images/Clonazepam.jpeg",
       "description":
           "Beneficios:\n\nUsado para tratar trastornos convulsivos y ataques de pánico. Tiene efectos calmantes y ayuda con la ansiedad.\n\nEfectos secundarios:\n\nSomnolencia, mareos y fatiga. Puede llevar a dependencia y síntomas de abstinencia."
     },
     {
       "name": "Diazepam",
-      "image": "assets/utils/Diazepam.jpeg",
+      "image": "assets/images/Diazepam.jpeg",
       "description":
           "Beneficios:\n\nTrata la ansiedad, los espasmos musculares y las convulsiones. Usado como sedante antes de procedimientos médicos.\n\nEfectos secundarios:\n\nSomnolencia, fatiga y debilidad muscular. Riesgo de dependencia y síntomas de abstinencia."
     },
     {
       "name": "Esomeprazol",
-      "image": "assets/utils/Esomeprazol.jpeg",
+      "image": "assets/images/Esomeprazol.jpeg",
       "description":
           "Beneficios:\n\nReduce el ácido estomacal y trata el reflujo gastroesofágico (GERD), úlceras y el síndrome de Zollinger-Ellison.\n\nEfectos secundarios:\n\nDolor de cabeza, diarrea y dolor de estómago. El uso a largo plazo puede aumentar el riesgo de fracturas óseas."
     },
     {
       "name": "Ibuprofeno",
-      "image": "assets/utils/Ibuprofeno.jpeg",
+      "image": "assets/images/Ibuprofeno.jpeg",
       "description":
           "Beneficios:\n\nAlivia el dolor, reduce la fiebre y tiene efectos antiinflamatorios. Usado para condiciones como artritis, dolor menstrual y dolores musculares.\n\nEfectos secundarios:\n\nProblemas gastrointestinales como náuseas y úlceras. Mayor riesgo de eventos cardiovasculares y daño renal con el uso a largo plazo."
     },
     {
       "name": "Mebeverina",
-      "image": "assets/utils/Mebeverina.jpeg",
+      "image": "assets/images/Mebeverina.jpeg",
       "description":
           "Beneficios:\n\nUsado para tratar los síntomas del síndrome del intestino irritable (SII) como los calambres estomacales y la distensión abdominal.\n\nEfectos secundarios:\n\nGeneralmente bien tolerado, pero puede causar mareos y reacciones cutáneas."
     },
     {
       "name": "Metoclopramida",
-      "image": "assets/utils/Metoclopramida.jpeg",
+      "image": "assets/images/Metoclopramida.jpeg",
       "description":
           "Beneficios:\n\nTrata náuseas, vómitos y gastroparesia. Usado para el reflujo gástrico y como ayuda en ciertos procedimientos médicos.\n\nEfectos secundarios:\n\nSomnolencia, fatiga y agitación. Puede causar efectos graves como discinesia tardía con el uso prolongado."
     },
     {
       "name": "Naproxeno",
-      "image": "assets/utils/Naproxeno.jpeg",
+      "image": "assets/images/Naproxeno.jpeg",
       "description":
           "Beneficios:\n\nAlivia el dolor, reduce la fiebre y tiene propiedades antiinflamatorias. Usado para condiciones como artritis, gota y calambres menstruales.\n\nEfectos secundarios:\n\nProblemas gastrointestinales como úlceras y sangrado. Mayor riesgo de eventos cardiovasculares."
     },
     {
       "name": "Omeprazol",
-      "image": "assets/utils/Omeprazol.png",
+      "image": "assets/images/Omeprazol.png",
       "description":
           "Beneficios:\n\nReduce el ácido estomacal, trata el reflujo gastroesofágico (GERD) y cura úlceras. Usado para el manejo a largo plazo del síndrome de Zollinger-Ellison.\n\nEfectos secundarios:\n\nDolor de cabeza, dolor de estómago y diarrea. El uso a largo plazo puede llevar a una deficiencia de vitamina B12 y fracturas óseas."
     },
     {
       "name": "Ondansetrón",
-      "image": "assets/utils/Ondansetrón.jpeg",
+      "image": "assets/images/Ondansetrón.jpeg",
       "description":
           "Beneficios:\n\nPreviene náuseas y vómitos causados por quimioterapia, radiación y cirugía.\n\nEfectos secundarios:\n\nDolor de cabeza, estreñimiento y mareos. Raramente, puede causar problemas graves del ritmo cardíaco."
     },
     {
       "name": "Ranitidina",
-      "image": "assets/utils/Ranitidina.jpeg",
+      "image": "assets/images/Ranitidina.jpeg",
       "description":
           "Beneficios:\n\nReduce el ácido estomacal y trata condiciones como el reflujo gastroesofágico (GERD) y úlceras.\n\nEfectos secundarios:\n\nDolor de cabeza, mareos y problemas gastrointestinales. El uso a largo plazo se ha asociado con un mayor riesgo de ciertas infecciones y deficiencia de vitamina B12."
     },
     {
       "name": "Tabcin",
-      "image": "assets/utils/Tabcin.jpeg",
+      "image": "assets/images/Tabcin.jpeg",
       "description":
           "Beneficios:\n\nAlivia síntomas del resfriado y la gripe, como congestión, fiebre y dolores corporales.\n\nEfectos secundarios:\n\nSomnolencia, mareos y sequedad de boca. El uso excesivo puede aumentar el riesgo de daño hepático."
     },
     {
       "name": "Trimebutina",
-      "image": "assets/utils/Trimebutina.jpeg",
+      "image": "assets/images/Trimebutina.jpeg",
       "description":
           "Beneficios:\n\nUsado para tratar los síntomas del síndrome del intestino irritable (SII) como el dolor abdominal y los movimientos intestinales irregulares.\n\nEfectos secundarios:\n\nGeneralmente bien tolerado, pero puede causar náuseas y mareos."
     },
@@ -324,9 +257,9 @@ class _VerMedicinaScreenState extends State<VerMedicinaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ver Medicina'),
+        title: Text('Ver Medicina'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
             // Acción para volver a la pantalla de bienvenida
             Navigator.pop(context);
@@ -341,10 +274,10 @@ class _VerMedicinaScreenState extends State<VerMedicinaScreen> {
               controller: searchController,
               decoration: InputDecoration(
                 labelText: 'Busca un medicamento',
-                border: const OutlineInputBorder(),
-                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
                 suffixIcon: IconButton(
-                  icon: const Icon(Icons.clear),
+                  icon: Icon(Icons.clear),
                   onPressed: _clearSearch,
                 ),
               ),
@@ -394,10 +327,10 @@ class MedicamentoDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(medicamento['image']!),
-            const SizedBox(height: 16.0),
+            SizedBox(height: 16.0),
             Text(
               medicamento['description']!,
-              style: const TextStyle(fontSize: 16.0),
+              style: TextStyle(fontSize: 16.0),
             ),
           ],
         ),
@@ -431,7 +364,7 @@ class _DiseaseConsultPageState extends State<DiseaseConsultPage> {
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Por favor, seleccione una enfermedad.')),
+        SnackBar(content: Text('Por favor, seleccione una enfermedad.')),
       );
     }
   }
@@ -440,28 +373,28 @@ class _DiseaseConsultPageState extends State<DiseaseConsultPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Consultar Enfermedad'),
+        title: Text('Consultar Enfermedad'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(25),
+        padding: EdgeInsets.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Seleccione la enfermedad con la que se identifica:',
               style: TextStyle(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: 40),
             DropdownButton<String>(
               value: _selectedDisease,
               onChanged: _handleDiseaseSelected,
-              style: const TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black),
               underline: Container(
                 height: 2,
                 color: Colors.blue,
               ),
-              icon: const Icon(Icons.arrow_drop_down),
+              icon: Icon(Icons.arrow_drop_down),
               elevation: 8,
               dropdownColor: Colors.grey[200],
               iconEnabledColor: Colors.black,
@@ -481,17 +414,17 @@ class _DiseaseConsultPageState extends State<DiseaseConsultPage> {
                 );
               }).toList(),
             ),
-            const SizedBox(height: 50),
+            SizedBox(height: 50),
             ElevatedButton.icon(
               onPressed: _searchSuggestions,
-              icon: const Icon(Icons.search),
-              label: const Text('Buscar Sugerencia'),
+              icon: Icon(Icons.search),
+              label: Text('Buscar Sugerencia'),
             ),
-            const SizedBox(height: 170),
+            SizedBox(height: 170),
             Container(
-              padding: const EdgeInsets.all(10),
-              color: const Color.fromARGB(255, 248, 240, 169),
-              child: const Text(
+              padding: EdgeInsets.all(10),
+              color: Color.fromARGB(255, 248, 240, 169),
+              child: Text(
                 'Advertencia:\n\nTodo medicamento sugerido puede dañar su salud si se hace uso excesivo del mismo. Se recomienda consultar a su médico antes de ingerir cualquier tipo de medicamento.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -691,11 +624,9 @@ class MedicinesSuggestionPage extends StatelessWidget {
         title: Text('Medicamentos para $disease'),
       ),
       body: medications == null
-          ? const Center(
-              child: Text('No hay medicamentos disponibles.'),
-            )
+          ? Center(child: Text('No hay medicamentos disponibles.'))
           : ListView.builder(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
               itemCount: medications.length,
               itemBuilder: (context, index) {
                 final medication = medications[index];
@@ -711,7 +642,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
                     );
                   },
                   child: Card(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    margin: EdgeInsets.symmetric(vertical: 10),
                     child: ListTile(
                       leading: Image.asset(
                         medication['image'],
@@ -721,7 +652,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
                       ),
                       title: Text(
                         medication['name'],
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       subtitle: Text('${medication['mg']}'),
                     ),
@@ -745,7 +676,7 @@ class MedicationDetailPage extends StatelessWidget {
         title: Text('${medication['name']} (${medication['mg']})'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -757,14 +688,14 @@ class MedicationDetailPage extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Text(
               'Ingredientes activos: ${medication['active_ingredients'].join(', ')}',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text('Indicaciones: ${medication['indications']}'),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text('Contraindicaciones: ${medication['contraindications']}'),
           ],
         ),
