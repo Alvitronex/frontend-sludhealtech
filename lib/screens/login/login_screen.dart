@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/components/components.dart';
+import 'package:frontend/main.dart';
 // import 'package:frontend/components/components.dart';
 import 'package:frontend/providers/providers.dart';
 import 'package:frontend/screens/login/home.dart';
@@ -33,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                 "S'lud Healtech",
                 style: TextStyle(
                     color: Colors.red.shade800,
-                    fontSize: 50,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 30),
@@ -60,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const LoginScreen(),
+                      builder: (context) => const RegisterScreen(),
                       fullscreenDialog: true, // Agrega esta línea
                     ),
                   );

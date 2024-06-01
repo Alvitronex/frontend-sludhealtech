@@ -155,22 +155,12 @@ class Home extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 8),
-                IconButton(
-                  icon: const Icon(
-                    Icons.logout,
-                    color: Colors.blue,
-                  ),
+                TextButton(
                   onPressed: () {
                     Provider.of<AuthService>(context, listen: false).logout();
                     Navigator.pushNamed(context, "login");
                   },
-                ),
-                Text(
-                  "Cerrar sesión",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue),
+                  child: const Text('Cerrar sesión'),
                 ),
               ],
             ),
@@ -196,7 +186,7 @@ class _VerMedicinaScreenState extends State<VerMedicinaScreen> {
     },
     {
       "name": "Antiflu Des",
-      "image": "assets/images/Antiflu-Des.jpeg",
+      "image": "assets/utils/Antiflu-Des.jpeg",
       "description":
           "Beneficios:\n\nAlivia síntomas del resfriado común y la gripe, como congestión, secreción nasal y dolores corporales.\n\nEfectos secundarios:\n\nPuede causar somnolencia, mareos, sequedad de boca y malestar estomacal. El uso excesivo o la combinación con alcohol puede aumentar el riesgo de daño hepático y otros efectos graves."
     },
@@ -519,7 +509,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Paracetamol',
           'mg': '500 mg',
-          'image': 'assets/images/paracetamol.jpg',
+          'image': 'assets/utils/paracetamol.jpg',
           'active_ingredients': ['Paracetamol'],
           'indications': 'Alivio del dolor y reducción de la fiebre.',
           'contraindications':
@@ -528,7 +518,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Aspirina',
           'mg': '500 mg',
-          'image': 'assets/images/Aspirina.jpeg',
+          'image': 'assets/utils/Aspirina.jpeg',
           'active_ingredients': ['Ácido acetilsalicílico'],
           'indications':
               'Alivio del dolor leve a moderado, reducción de fiebre.',
@@ -540,7 +530,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Omeprazol',
           'mg': '20 mg',
-          'image': 'assets/images/Omeprazol.png',
+          'image': 'assets/utils/Omeprazol.png',
           'active_ingredients': ['Omeprazol'],
           'indications': 'Tratamiento del reflujo gastroesofágico.',
           'contraindications':
@@ -549,7 +539,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Bismutol',
           'mg': '262 mg',
-          'image': 'assets/images/Bismutol.jpeg',
+          'image': 'assets/utils/Bismutol.jpeg',
           'active_ingredients': ['Subsalicilato de bismuto'],
           'indications': 'Alivio de la indigestión y malestar estomacal.',
           'contraindications':
@@ -560,7 +550,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Antiflu-Des',
           'mg': '500 mg',
-          'image': 'assets/images/Antiflu-Des.jpeg',
+          'image': 'assets/utils/Antiflu-Des.jpeg',
           'active_ingredients': ['Paracetamol', 'Clorfenamina', 'Fenilefrina'],
           'indications':
               'Alivio de los síntomas de la gripe como congestión nasal, dolor y fiebre.',
@@ -570,7 +560,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Tabcin',
           'mg': '325 mg',
-          'image': 'assets/images/Tabcin.jpeg',
+          'image': 'assets/utils/Tabcin.jpeg',
           'active_ingredients': ['Paracetamol', 'Clorfenamina', 'Fenilefrina'],
           'indications':
               'Alivio de los síntomas del resfriado común y la gripe.',
@@ -582,7 +572,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Ibuprofeno',
           'mg': '600 mg',
-          'image': 'assets/images/Ibuprofeno.jpeg',
+          'image': 'assets/utils/Ibuprofeno.jpeg',
           'active_ingredients': ['Ibuprofeno'],
           'indications': 'Alivio del dolor y la inflamación.',
           'contraindications':
@@ -591,7 +581,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Naproxeno',
           'mg': '500 mg',
-          'image': 'assets/images/Naproxeno.jpeg',
+          'image': 'assets/utils/Naproxeno.jpeg',
           'active_ingredients': ['Naproxeno'],
           'indications': 'Alivio del dolor y la inflamación.',
           'contraindications':
@@ -602,7 +592,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Diazepam',
           'mg': '10 mg',
-          'image': 'assets/images/Diazepam.jpeg',
+          'image': 'assets/utils/Diazepam.jpeg',
           'active_ingredients': ['Diazepam'],
           'indications':
               'Tratamiento de la ansiedad y los espasmos musculares.',
@@ -612,7 +602,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Clonazepam',
           'mg': '2 mg',
-          'image': 'assets/images/Clonazepam.jpeg',
+          'image': 'assets/utils/Clonazepam.jpeg',
           'active_ingredients': ['Clonazepam'],
           'indications':
               'Tratamiento de trastornos de ansiedad y convulsiones.',
@@ -624,7 +614,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Metoclopramida',
           'mg': '10 mg',
-          'image': 'assets/images/Metoclopramida.jpeg',
+          'image': 'assets/utils/Metoclopramida.jpeg',
           'active_ingredients': ['Metoclopramida'],
           'indications': 'Tratamiento de las náuseas y vómitos.',
           'contraindications':
@@ -633,7 +623,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Ondansetrón',
           'mg': '8 mg',
-          'image': 'assets/images/Ondansetrón.jpeg',
+          'image': 'assets/utils/Ondansetrón.jpeg',
           'active_ingredients': ['Ondansetrón'],
           'indications':
               'Prevención de náuseas y vómitos inducidos por quimioterapia.',
@@ -645,7 +635,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Mebeverina',
           'mg': '135 mg',
-          'image': 'assets/images/Mebeverina.jpeg',
+          'image': 'assets/utils/Mebeverina.jpeg',
           'active_ingredients': ['Mebeverina'],
           'indications': 'Alivio del síndrome del intestino irritable.',
           'contraindications':
@@ -654,7 +644,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Trimebutina',
           'mg': '200 mg',
-          'image': 'assets/images/Trimebutina.jpeg',
+          'image': 'assets/utils/Trimebutina.jpeg',
           'active_ingredients': ['Trimebutina'],
           'indications': 'Tratamiento del síndrome del intestino irritable.',
           'contraindications':
@@ -665,7 +655,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Ranitidina',
           'mg': '150 mg',
-          'image': 'assets/images/Ranitidina.jpeg',
+          'image': 'assets/utils/Ranitidina.jpeg',
           'active_ingredients': ['Ranitidina'],
           'indications':
               'Tratamiento de la úlcera gástrica y duodenal, y reflujo gastroesofágico.',
@@ -675,7 +665,7 @@ class MedicinesSuggestionPage extends StatelessWidget {
         {
           'name': 'Esomeprazol',
           'mg': '40 mg',
-          'image': 'assets/images/Esomeprazol.jpeg',
+          'image': 'assets/utils/Esomeprazol.jpeg',
           'active_ingredients': ['Esomeprazol'],
           'indications': 'Tratamiento del reflujo gastroesofágico.',
           'contraindications':
